@@ -5,7 +5,7 @@ import warnings
 import sys
 from threading import local
 from py2neo import neo4j
-from py2neo.exceptions import ClientError
+from py2neo.cypher import ClientError
 from py2neo.packages.httpstream import SocketError
 from py2neo import cypher as py2neo_cypher
 from .exception import CypherException, UniqueProperty, TransactionError
