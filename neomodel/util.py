@@ -4,7 +4,7 @@ import time
 import warnings
 import sys
 from threading import local
-from py2neo import neo4j
+from py2neo import neo4j, Graph
 from py2neo.cypher import ClientError
 from py2neo.packages.httpstream import SocketError
 from py2neo import cypher as py2neo_cypher
@@ -106,7 +106,7 @@ class Database(local):
 
     def new_session(self):
         try:
-            self.session = neo4j.GraphDatabaseService(self.url)
+            self.session = Graph(self.url)
         except SocketError as e:
             raise SocketError("Error connecting to {0} - {1}".format(self.url, e))
 
