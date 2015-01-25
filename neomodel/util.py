@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 path_to_id = lambda val: int(neo4j.URI(val).path.segments[-1])
 
 
-class PatchedTransaction(py2neo_cypher.Transaction):
+class PatchedTransaction(py2neo_cypher.CypherTransaction):
     def __init__(self, uri):
         super(PatchedTransaction, self).__init__(uri)
 
